@@ -2,11 +2,6 @@
 
 A Python-based algorithmic trading system implementing **Smart Money Concepts (SMC)** for detecting and trading institutional liquidity sweeps. The system ingests live market data, identifies high-probability reversal setups, applies dynamic position sizing, and produces a comprehensive backtest report with professional-grade performance metrics.
 
----
-
-![Dashboard](screenshots/dashboard.png)
-
----
 
 ## Table of Contents
 
@@ -21,14 +16,13 @@ A Python-based algorithmic trading system implementing **Smart Money Concepts (S
 - [Performance Benchmarks](#performance-benchmarks)
 - [File Structure](#file-structure)
 - [Tech Stack](#tech-stack)
-- [Roadmap](#roadmap)
 - [Disclaimer](#disclaimer)
 
 ---
 
 ## Overview
 
-Institutional participants — banks, hedge funds, and proprietary trading desks — systematically engineer liquidity events by driving price through retail stop-loss clusters before reversing. This system identifies those events in real time, filters them through RSI and volume confirmation, and backtests a reversal strategy with fixed-fractional position sizing and ATR-derived stop levels.
+Institutional participants like the banks, hedge funds, and proprietary trading desks systematically engineer liquidity events by driving price through retail stop-loss clusters before reversing. This system identifies those events in real time, filters them through RSI and volume confirmation, and backtests a reversal strategy with fixed-fractional position sizing and ATR-derived stop levels.
 
 **Core capabilities:**
 - Live OHLCV data ingestion via Yahoo Finance (equities, crypto, forex, ETFs)
@@ -119,18 +113,14 @@ indicators.py        -- RSI, EMA 20/50/200, ATR, VWAP
 
 ## Screenshots
 
-The following screenshots should be taken with the app running on `AAPL`, `1 Day` interval, `6 Months` period, default settings.
+The following screenshots should be taken with the app running on `NFLX`, `1 Day` interval, `6 Months` period, default settings.
 
 | File | Content |
 |------|---------|
-| `screenshots/dashboard.png` | Full application view — sidebar, KPI row, and candlestick chart with zone lines and sweep markers visible |
-| `screenshots/chart.png` | Zoomed chart section clearly showing horizontal zone lines, buy/sell triangles, and EMA overlays |
-| `screenshots/signals.png` | Active Signals tab with 2-3 expanded signal cards showing RSI, volume ratio, and strength classification |
-| `screenshots/backtest.png` | Backtest Report tab showing the performance summary grid and dual-panel equity curve |
-
-**To capture on Windows:** `Win + Shift + S`, drag to select area, paste into Paint and save as `.png`.
-
-Create a `screenshots/` directory in the project root and save all four images with the exact filenames listed above.
+| <img width="1916" height="938" alt="Dashboard" src="https://github.com/user-attachments/assets/9bf8416e-93a3-43a5-93ba-96f56ade1902" /> | Full application view of sidebar, KPI row, and candlestick chart with zone lines and sweep markers visible |
+| <img width="1915" height="933" alt="Charts" src="https://github.com/user-attachments/assets/87f546f4-48bc-436f-b9f1-3d96c2b845b1" /> | Zoomed chart section clearly showing horizontal zone lines, buy/sell triangles, and EMA overlays |
+| <img width="1656" height="819" alt="Signals" src="https://github.com/user-attachments/assets/7a43db29-4748-43a8-b497-3e19548626b1" /> | Active Signals tab with 2-3 expanded signal cards showing RSI, volume ratio, and strength classification |
+| <img width="1660" height="742" alt="BT" src="https://github.com/user-attachments/assets/77d4c359-de7e-4cfd-92d7-63403fd1abd1" /> <img width="1684" height="739" alt="BT2" src="https://github.com/user-attachments/assets/6ac0e488-38f5-4adb-a53e-3195409fca03" /> | Backtest Report tab showing the performance summary grid and dual-panel equity curve |
 
 ---
 
@@ -145,7 +135,7 @@ pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-Navigate to `http://localhost:8501` in your browser.
+Navigate to localhost in your browser.
 
 ---
 
@@ -261,23 +251,6 @@ liquidity-sweep-reversal-system/
 | yfinance | >= 0.2.40 | Live OHLCV data from Yahoo Finance |
 | pandas | >= 2.0 | Data manipulation and trade log |
 | numpy | >= 1.26 | Vectorised numerical computation |
-
----
-
-## Roadmap
-
-The following enhancements are planned for future development:
-
-- Order Block detection — identify institutional supply and demand zones
-- Fair Value Gap (FVG) identification — locate unfilled price inefficiencies
-- Break of Structure (BOS) classification — confirm trend continuation or reversal
-- Multi-timeframe confluence — higher timeframe trend filter on lower timeframe entries
-- Live alerting — Telegram and email notifications on signal generation
-- ML-based signal scoring — Random Forest or XGBoost classifier for signal quality prediction
-- Portfolio-level backtesting — simultaneous testing across multiple instruments
-- Walk-forward optimisation — out-of-sample validation to prevent overfitting
-- Paper trading integration — live forward testing via Alpaca or Binance API
-- Persistent storage — SQLite database for saving and comparing backtest runs
 
 ---
 
